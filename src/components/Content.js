@@ -9,7 +9,7 @@ import Image from 'react-bootstrap/Image';
 import { HiEye,HiMinusCircle,HiPlusCircle } from "react-icons/hi";
 import { useState } from 'react';
 import PostComments from './Comments'
-
+import styles from './Content.module.css';
 function Content(token) {
   const [prosisActivve,setproisActive] = useState(true);
 
@@ -19,10 +19,10 @@ function Content(token) {
       }
   return (
     
-    <Container fluid="md" >
+    <Container fluid="md" className={styles.container}>
       <Row className="justify-content-md-center">
         <Col md="6"  > 
-        <Card className='mt-5' style={{ width: '100%',height:'100%'}}>
+        <Card className= {'mt-5' + styles.card}  >
      
       <Card.Body >
         <Card.Title>
@@ -34,8 +34,8 @@ function Content(token) {
             </Col>
             <Col md="6" > 
             <Stack gap={1} >
-            <Card.Text style={{fontSize: 14,padding:0,margin:0,fontStyle:'roboto',fontWeight:"bold"}}>Jhersy A. Fernandez</Card.Text>
-              <Card.Text style={{fontSize: 14,padding:0,margin:0,fontStyle:'roboto',fontWeight:"bold" }}>2 hr</Card.Text>
+            <Card.Text className={styles.cardText}>Jhersy A. Fernandez</Card.Text>
+              <Card.Text className={styles.cardText}>2 hr</Card.Text>
               </Stack>
               
             </Col>
@@ -46,7 +46,7 @@ function Content(token) {
             
             </Col>
             <Col md="11" > 
-            <Card.Text style={{fontSize: 14,padding:0,marginTop:5}}>
+            <Card.Text className={styles.cardComment}>
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </Card.Text>
@@ -63,13 +63,13 @@ function Content(token) {
           <Row >
            <Col  md="6" style={{backgroundColor: "#1DA185",height:50,color:"#FFFFFF",display: 'flex', justifyContent: 'center', alignItem: 'center' }}> 
            <Card.Text style={{marginTop:13,marginBottom:13,fontWeight:'bolder' }}>
-           <HiPlusCircle  style={{fontSize:20,fontStyle:'roboto'}}/> PROS 100
+           <HiPlusCircle  style={{fontSize:20,fontStyle:'roboto'}}/> Pros 100
            </Card.Text>
             
             </Col>
             <Col md="6" style={{backgroundColor: "#BD392E",height:50,color:"#FFFFFF",display: 'flex', justifyContent: 'center', alignItem: 'center'  }}> 
             <Card.Text style={{marginTop:13,marginBottom:13,fontWeight:'bolder' }}>
-            <HiMinusCircle  style={{fontSize:20,fontStyle:'roboto'}}/> CONS 100
+            <HiMinusCircle  style={{fontSize:20,fontStyle:'roboto'}}/> Cons 100
         </Card.Text>
               
             </Col>
@@ -84,15 +84,15 @@ function Content(token) {
           
           </Row>
           <Row >
-           <Col onClick={handleClick}  md={prosisActivve?"11":"1"} style={{backgroundColor: "#1DA185",height:50,color:"#FFFFFF",display: 'flex', justifyContent: 'center', alignItem: 'center' }}> 
-           <Card.Text style={{marginTop:13,marginBottom:13,fontWeight:'bolder' }}>
-           <HiPlusCircle  style={{fontSize:20,fontStyle:'roboto'}}/> {prosisActivve?"PROS":""}  
+           <Col onClick={handleClick}  md={prosisActivve?"11":"1"} className={styles.prosCol}> 
+           <Card.Text className={styles.prosText}>
+           <HiPlusCircle  style={{fontSize:20}}/> {prosisActivve?"Pros":""}  
            </Card.Text>
             
             </Col>
-            <Col  onClick={handleClick}  md={prosisActivve?"1":"11"} style={{backgroundColor: "#BD392E",height:50,color:"#FFFFFF",display: 'flex', justifyContent: 'center', alignItem: 'center'  }}> 
-            <Card.Text style={{marginTop:13,marginBottom:13,fontWeight:'bolder' }}>
-            <HiMinusCircle  style={{fontSize:20,fontStyle:'roboto'}}/> {prosisActivve?"":"CONS"}   
+            <Col  onClick={handleClick}  md={prosisActivve?"1":"11"} className={styles.consCol}> 
+            <Card.Text className={styles.consText}>
+            <HiMinusCircle  style={{fontSize:20}}/> {prosisActivve?"":"Cons"}   
           </Card.Text>
               
             </Col>
@@ -108,7 +108,7 @@ function Content(token) {
               <Row>
               
               <Col lg="2">
-              <Button type="submit" variant="light" style={{marginTop:10,fontStyle:'roboto'}}>
+              <Button type="submit" variant="light"  className={styles.btnCancel}>
                               Cancel
                           </Button>
               </Col>

@@ -7,6 +7,7 @@ import userImage from '../images/users.png';
 import Image from 'react-bootstrap/Image';
 import { useEffect, useState } from 'react';
 import Replies from './Replies';
+import styles from './Comments.module.css'
 function Comments({token,prosisActivve,onClick,Types}) {
 
 console.log(Types=="Pros")
@@ -16,7 +17,7 @@ console.log("proactive"+prosisActivve)
   return (
       
 
-        <Col  onClick={onClick}  sm={Types=="Pros"?prosisActivve?"11":"1":prosisActivve?"1":"11"} style={{backgroundColor: "#FFFFFF",marginTop:20,display: 'flex', justifyContent: 'center', alignItem: 'center',display:Types=="Pros"?prosisActivve?"":"none":prosisActivve?"none":"" }} >
+        <Col  onClick={onClick} className={styles.colComment}  sm={Types=="Pros"?prosisActivve?"11":"1":prosisActivve?"1":"11"} style={{display:Types=="Pros"?prosisActivve?"":"none":prosisActivve?"none":"" }} >
  
         <Container fluid="md" >
             <Row >

@@ -1,0 +1,56 @@
+.container{
+    margin-Top:30px;
+}
+.card{
+    width: 100%;
+    height:100%;
+    margin-top:30px;
+}
+.cardText{
+    font-Size: 14px;
+    padding:0;
+    margin:0;
+    font-family: 'Roboto', sans-serif;
+    font-Weight:500;
+   
+}
+.cardComment{
+    font-Size: 14px;
+    padding:0;
+    margin-Top:5px;
+    font-family: 'Roboto', sans-serif;
+    font-Weight:400;
+}
+.prosCol{
+    background-Color: #1DA185;
+    height:50px;
+    color:#FFFFFF;
+    display: flex;
+    justify-Content: center;
+    align-Items: center; 
+}
+.consCol{
+    background-Color: #BD392E;
+    height:50px;
+    color:#FFFFFF;
+    display: flex;
+    justify-Content: center;
+    align-Items: center; 
+}
+.prosText{
+
+    font-Weight:700;
+    font-family: 'Roboto', sans-serif;
+ 
+}
+.consText{
+  
+    font-Weight:700;
+    font-family: 'Roboto', sans-serif;
+
+}
+.btnCancel{
+    margin-Top:10px;
+    font-family: 'Roboto', sans-serif;
+    font-Weight:700;
+}
