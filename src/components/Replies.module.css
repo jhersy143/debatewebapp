@@ -1,9 +1,6 @@
-.colComment{
-    background-color: "#FFFFFF";
-    margin-top: 20px;
-    display: 'flex';
-    justify-content: 'center';
-     align-items: 'center';
+.row{
+    margin-Top:20px;
+    padding:0;
 }
 .cardTitle{
     font-Size: 13px;
@@ -12,10 +9,9 @@
     font-Weight:700;
     font-family: 'Roboto', sans-serif;
 }
-.commentText{
+.replyText{
     font-Size: 14px;
     padding:0;
-    margin:0;
+    margin-Top:5px;
     font-family: 'Roboto', sans-serif;
-    font-Weight:500;
 }

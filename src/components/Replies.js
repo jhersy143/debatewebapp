@@ -6,20 +6,20 @@ import { Card } from 'react-bootstrap';
 import userImage from '../images/users.png';
 import Image from 'react-bootstrap/Image';
 import { useState } from 'react';
-
+import  styles  from  './Replies.module.css';
 function Replies({token,type}) {
 
   return (
  
     
-            <Row style={{marginTop:10,paddin:0}}> 
+            <Row className={styles.row}> 
                         
                         <Col md="11">
                         <Container fluid="md" >
                                 <Row>
                             
                                 <Col md="12">
-                                <Card.Text style={{marginTop:13,marginBottom:13,fontWeight:'bolder',fontSize:13,fontWeight:'bolder',fontStyle:'roboto'}}>
+                                <Card.Text className={styles.repliesText}>
                             Replies:
                             </Card.Text>  
                             </Col>
@@ -31,8 +31,8 @@ function Replies({token,type}) {
                         </Col>
                         <Col md="5" > 
                         <Stack gap={0} >
-                        <Card.Text style={{fontSize: 13,padding:0,margin:0,fontWeight:'bolder',fontStyle:'roboto'}}>Jhersy A. Fernandez</Card.Text>
-                            <Card.Text style={{fontSize: 13,padding:0,margin:0 ,fontWeight:'bolder',fontStyle:'roboto'}}>2 hr</Card.Text>
+                        <Card.Text className={styles.cardTitle}>Jhersy A. Fernandez</Card.Text>
+                            <Card.Text className={styles.cardTitle}>2 hr</Card.Text>
                             </Stack>
                             
                         </Col>
@@ -43,7 +43,7 @@ function Replies({token,type}) {
                         
                         </Col>
                         <Col md="11" > 
-                        <Card.Text style={{fontSize: 14,padding:0,marginTop:5,fontStyle:'roboto'}}>
+                        <Card.Text  className={styles.replyText}>
                         {type=="Pros"?"PROS REPPLIES":"CONS REPPLIES"}
                 
                         </Card.Text>

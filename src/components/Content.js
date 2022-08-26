@@ -46,7 +46,7 @@ function Content(token) {
             
             </Col>
             <Col md="11" > 
-            <Card.Text className={styles.cardComment}>
+            <Card.Text className={styles.cardCotent}>
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </Card.Text>
@@ -61,22 +61,22 @@ function Content(token) {
         </Card.Text>
         <Container fluid="md">
           <Row >
-           <Col  md="6" style={{backgroundColor: "#1DA185",height:50,color:"#FFFFFF",display: 'flex', justifyContent: 'center', alignItem: 'center' }}> 
-           <Card.Text style={{marginTop:13,marginBottom:13,fontWeight:'bolder' }}>
-           <HiPlusCircle  style={{fontSize:20,fontStyle:'roboto'}}/> Pros 100
+           <Col  md="6" className={styles.prosCol}> 
+           <Card.Text className={styles.prosText}>
+           <HiPlusCircle  style={{fontSize:20}}/> Pros 100
            </Card.Text>
             
             </Col>
-            <Col md="6" style={{backgroundColor: "#BD392E",height:50,color:"#FFFFFF",display: 'flex', justifyContent: 'center', alignItem: 'center'  }}> 
-            <Card.Text style={{marginTop:13,marginBottom:13,fontWeight:'bolder' }}>
-            <HiMinusCircle  style={{fontSize:20,fontStyle:'roboto'}}/> Cons 100
+            <Col md="6" className={styles.consCol}> 
+            <Card.Text className={styles.consText}>
+            <HiMinusCircle  style={{fontSize:20}}/> Cons 100
         </Card.Text>
               
             </Col>
           </Row>
           <Row >
-           <Col md="12" className='ml-1'  > 
-           <Card.Text style={{marginTop:13,marginBottom:13,fontWeight:'bolder',fontStyle:'roboto' }}>
+           <Col md="12" className={styles.commentText} > 
+           <Card.Text >
             Comments:
             </Card.Text>
             
@@ -113,7 +113,7 @@ function Content(token) {
                           </Button>
               </Col>
               <Col lg="2">
-              <Button type="submit" variant="primary" style={{marginTop:10,fontStyle:'roboto'}}>
+              <Button type="submit" variant="primary" className={styles.btnComment}>
                               Comment
                           </Button>
               </Col>

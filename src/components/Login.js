@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import {useNavigate,useParaams} from 'react-router-dom';
 import Alert from 'react-bootstrap/Alert';
 import PropTypes from "prop-types";
+import  styles from './login.module.css';
 export default function Login({setToken}) {
     const [show, setShow] = useState(false);
     const navigate = useNavigate();
@@ -62,8 +63,8 @@ export default function Login({setToken}) {
               
               <Col md="5">
               <Card className='mt-5' style={{ width: '100%',height:'100%'}}>
-                        <Div variant="top" md="5" style={{backgroundColor: "#8AFFC7",height:50,color:"#FFFFFF",display: 'flex', justifyContent: 'center', alignItem: 'center' }}> 
-                        <Card.Text style={{marginTop:13,marginBottom:13,fontWeight:'bolder' }}>
+                        <Div variant="top" md="5" className={styles.formHeader}> 
+                        <Card.Text>
                         LOGIN
                         </Card.Text>
                         
@@ -71,18 +72,19 @@ export default function Login({setToken}) {
               <Card.Body >
              
               <Form onSubmit={handleSubmit}>
-                    <Form.Group className="mb-3" controlId="formBasicEmail" style={{display: 'flex',flexDirection:'column'}}>
-                    <Form.Label style={{alignSelf: 'center'}}>Email</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" style={{width:300,alignSelf: 'center'}} name ="email" onChange={handleChange}/>
+
+                    <Form.Group controlId="formBasicEmail" className={styles.formGroup}>
+                    <Form.Label className={styles.formLabel}>Email</Form.Label>
+                    <Form.Control type="email" placeholder="Enter email" name ="email" onChange={handleChange} className={styles.formTextbox}/>
 
                     </Form.Group>
 
-                    <Form.Group className="mb-5" controlId="formBasicPassword" style={{display: 'flex',flexDirection:'column'}}>
-                    <Form.Label style={{alignSelf: 'center'}}>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" style={{width:300,alignSelf: 'center'}}  name ="password" onChange={handleChange}/>
+                    <Form.Group  controlId="formBasicPassword" className={styles.formGroup}>
+                    <Form.Label className={styles.formLabel}>Password</Form.Label>
+                    <Form.Control type="password" placeholder="Password" style={{width:300,alignSelf: 'center'}}  name ="password" onChange={handleChange} className={styles.formTextbox}/>
                     </Form.Group>
                     <Form.Group className="mb-3"  style={{textAlign:'center'}}>
-                        <Button type="submit"  style={{backgroundColor: "#8AFFF8",height:40,color:"#FFFFFF",width:200}}>
+                        <Button type="submit"  className={styles.btnloginForm +' '+styles.btnLogin}>
                             Login
                         </Button>
                    
@@ -92,7 +94,7 @@ export default function Login({setToken}) {
                     </Form.Group>
                     <Form.Group className="mb-3" style={{textAlign:'center'}}>
                        
-                    <Button  style={{backgroundColor: "#8AFFC7",height:40,color:"#FFFFFF",width:200}}>
+                    <Button  className={styles.btnloginForm +' '+styles.btnRegister}>
                    
                     <Nav.Link href="/register"> Sign-Up</Nav.Link>
                     </Button>

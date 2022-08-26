@@ -9,6 +9,7 @@ import {useNavigate,useParaams} from 'react-router-dom';
 import { useState } from "react";
 import axios from 'axios';
 import Nav from 'react-bootstrap/Nav';
+import  styles from './Register.module.css';
 function Register() {
     const navigate = useNavigate();
     const [inputs, setInputs] = useState([]);
@@ -43,25 +44,25 @@ function Register() {
               <Card.Body >
              
               <Form onSubmit={handleSubmit}>
-                    <Form.Group className="mb-3" controlId="formBasicEmail" style={{display: 'flex',flexDirection:'column'}}>
+                    <Form.Group className={"mb-3"+" "+styles.formGroup} controlId="formBasicEmail">
                     <Form.Label style={{alignSelf: 'center'}}>Email</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" style={{width:300,alignSelf: 'center'}} name = "email" onChange={handleChange} />
 
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formFname" style={{display: 'flex',flexDirection:'column'}}>
+                    <Form.Group className={"mb-3"+" "+styles.formGroup} controlId="formFname" >
                     <Form.Label style={{alignSelf: 'center'}}>First Name</Form.Label>
                     <Form.Control type="text" placeholder="First Name" style={{width:300,alignSelf: 'center'}} name = "firstname" onChange={handleChange}/>
 
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formLname" style={{display: 'flex',flexDirection:'column'}}>
+                    <Form.Group className={"mb-3"+" "+styles.formGroup} controlId="formLname">
                     <Form.Label style={{alignSelf: 'center'}}>Last Name</Form.Label>
                     <Form.Control type="text" placeholder="Last Name" style={{width:300,alignSelf: 'center'}} name = "lastname" onChange={handleChange}/>
 
                     </Form.Group>
 
-                    <Form.Group className="mb-5" controlId="formBasicPassword" style={{display: 'flex',flexDirection:'column'}}>
+                    <Form.Group className={"mb-3"+" "+styles.formGroup} controlId="formBasicPassword" >
                     <Form.Label style={{alignSelf: 'center'}}>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" style={{width:300,alignSelf: 'center'}} name = "password" onChange={handleChange}/>
                     </Form.Group>
@@ -69,7 +70,7 @@ function Register() {
                    
                     <Form.Group className="mb-3" style={{textAlign:'center'}}>
                        
-                    <Button type="submit"  style={{backgroundColor: "#8AFFC7",height:40,color:"#FFFFFF",width:200}}>
+                    <Button type="submit"  className={styles.btnregisterForm  +  ' '  + styles.btnLogin}>
                     Sign-Up
                     </Button>
                     </Form.Group>
@@ -79,7 +80,7 @@ function Register() {
                     </Form.Group>
                     
                     <Form.Group className="mb-3"  style={{textAlign:'center'}}>
-                        <Button   style={{backgroundColor: "#8AFFF8",height:40,color:"#FFFFFF",width:200}}>
+                        <Button   className={styles.btnregisterForm  +  ' '  + styles.btnLogin}>
                         <Nav.Link href="/login">Login</Nav.Link>
                         </Button>
                    

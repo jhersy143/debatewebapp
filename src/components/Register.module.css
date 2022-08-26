@@ -1,0 +1,38 @@
+.formHeader{
+    background-Color: #1DA185;
+    height:50px;
+    color:#FFFFFF;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+}
+.formHeadertext{
+    margin-Top:13px;
+    margin-Bottom:13px;
+    font-Weight:bolder;
+}
+.formGroup{
+    display: flex;
+    flex-Direction:column;
+}
+.formLabel{
+    align-Self: center;
+}
+.formTextbox{
+    width:300px;
+    align-Self: center;
+}
+.btnregisterForm{
+    height:40px;
+    color:#FFFFFF;
+    width:200px;
+   
+}
+.btnLogin{
+    background-Color: #8AFFF8;
+    margin-top:30px;
+}
+.btnRegister{
+    background-Color: #8AFFC7;
+ 
+}

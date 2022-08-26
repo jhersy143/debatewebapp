@@ -14,10 +14,16 @@
     font-Weight:500;
    
 }
-.cardComment{
+.cardCotent{
     font-Size: 14px;
     padding:0;
     margin-Top:5px;
+    font-family: 'Roboto', sans-serif;
+    font-Weight:400;
+}
+.commentText{
+    font-Size: 14px;
+    margin:15px;
     font-family: 'Roboto', sans-serif;
     font-Weight:400;
 }
@@ -50,6 +56,12 @@
 
 }
 .btnCancel{
+    margin-Top:10px;
+    font-family: 'Roboto', sans-serif;
+    font-Weight:700;
+}
+
+.btnComment{
     margin-Top:10px;
     font-family: 'Roboto', sans-serif;
     font-Weight:700;

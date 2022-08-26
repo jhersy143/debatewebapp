@@ -27,8 +27,8 @@ console.log("proactive"+prosisActivve)
                 </Col>
                 <Col md="5" > 
                 <Stack gap={0} >
-                <Card.Text style={{fontSize: 13,padding:0,margin:0,fontWeight:'bolder',fontStyle:'roboto'}}>Jhersy A. Fernandez</Card.Text>
-                <Card.Text style={{fontSize: 13,padding:0,margin:0 ,fontWeight:'bolder',fontStyle:'roboto'}}>2 hr</Card.Text>
+                <Card.Text className={styles.cardTitle}>Jhersy A. Fernandez</Card.Text>
+                <Card.Text className={styles.cardTitle}>2 hr</Card.Text>
                 </Stack>
                 
                 </Col>
@@ -40,7 +40,7 @@ console.log("proactive"+prosisActivve)
                 
                 </Col>
                 <Col md="11" > 
-                <Card.Text style={{fontSize: 14,padding:0,marginTop:5,fontStyle:'roboto'}}>{Types=="Pros"?"PROS COMMENTS":"CONS COMMENTS"}
+                <Card.Text >{Types=="Pros"?"PROS COMMENTS":"CONS COMMENTS"}
                 
                 </Card.Text>
                 
