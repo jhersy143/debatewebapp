@@ -45,7 +45,7 @@ export default function Login({setToken}) {
      
   return (
       
-      <Container>
+      <Container className = {styles.container} style={{height:1000}}>
           {
               show &&
                 <Alert variant="danger" onClose={() => setShow(false)} dismissible>

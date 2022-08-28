@@ -71,7 +71,7 @@ function Register() {
                     <Form.Group className="mb-3" style={{textAlign:'center'}}>
                        
                     <Button type="submit"  className={styles.btnregisterForm  +  ' '  + styles.btnLogin}>
-                    Sign-Up
+                            Sign-Up
                     </Button>
                     </Form.Group>
 

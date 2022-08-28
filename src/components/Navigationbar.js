@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 import useToken from './token';
+import styles from './Navigationbar.module.css';
 function Navigationbar({token}) {
   //const tokenNav = useToken.token;
 
@@ -12,7 +13,7 @@ function Navigationbar({token}) {
     sessionStorage.clear()
   }
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar expand="lg" fixed='top' className={styles.nabvar} >
       <Container>
         <Navbar.Brand href="#home">Debate App</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
