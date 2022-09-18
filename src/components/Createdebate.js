@@ -11,13 +11,23 @@ import { useEffect, useState } from "react";
 import {useNavigate,useParaams} from 'react-router-dom';
 import Alert from 'react-bootstrap/Alert';
 import PropTypes from "prop-types";
-import  styles from './login.module.css';
+import  styles from './Createdebate.module.css';
 import Image from 'react-bootstrap/Image';
 import  Logo from '../images/icon.png';
-export default function Login({setToken}) {
+export default function Createdebate({token}) {
     const [show, setShow] = useState(false);
     const navigate = useNavigate();
     const [inputs, setInputs] = useState([]);
+ 
+    useEffect(() => {
+        addUserid();
+    }, []);
+
+    function addUserid(){
+        const name = "userID";
+        const value = token;
+        setInputs(values => ({...values, [name]: value}));
+    }
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -27,16 +37,16 @@ export default function Login({setToken}) {
     const handleSubmit =  async (event) => {
         event.preventDefault();
         
-        axios.post('http://localhost/api/users.php/login', inputs).then(function(response){
+        axios.post('http://localhost/api/post.php/create', inputs).then(function(response){
     
             if(response.data['status']==0){
                 setShow(true);
+                console.log(response.data);
              
             }
             else{
-           
-                setToken(response.data['userID']);
-                navigate('/');
+                console.log(response.data);
+                //navigate('/');
              
             }
             
@@ -64,14 +74,11 @@ export default function Login({setToken}) {
           <Row className="justify-content-md-center">
               
               <Col md="5">
-              <Card className={styles.card} >
-              
-              <Div  md="5" className={styles.formHeader}> 
-                    <Image  src={Logo} className={styles.logo} rounded/>
-              </Div>
+              <Card className={'mt-5'+ ' '+styles.card} >
+            
               <Div variant="top" md="5" className={styles.formHeader}> 
                     <Card.Text className={styles.formHeadertext}>
-                        LOGIN
+                        Create
                     </Card.Text>
                         
               </Div>
@@ -81,28 +88,34 @@ export default function Login({setToken}) {
 
                     <Form.Group controlId="formBasicEmail" className={styles.formGroup}>
                     
-                    <Form.Control type="email" placeholder="Enter email" name ="email" onChange={handleChange} className={styles.formTextbox}/>
-                    <Form.Label className={styles.formLabel}>Email</Form.Label>
+                    <Form.Control as="textarea" className = {styles.textArea} placeholder="Content here" name="content" style={{height:150}} onChange={handleChange}/>  
+                    <Form.Label className={styles.formLabel}></Form.Label>
                     </Form.Group>
 
                     <Form.Group  controlId="formBasicPassword" className={styles.formGroup}>
-                    
-                    <Form.Control type="password" placeholder="Password"  name ="password" onChange={handleChange} className={styles.formTextbox}/>
-                    <Form.Label className={styles.formLabel}>Password</Form.Label>
-                    <Nav.Link href="/register" className={styles.forgotpassword}>Forgot Password.</Nav.Link>
+                    <Form.Control type="text" placeholder="Yes" name ="pros" onChange={handleChange} className={styles.formTextbox}/>
+                    <Form.Label className={styles.formLabel}>Pros</Form.Label>
                     </Form.Group>
+
+                    <Form.Group  controlId="formBasicPassword" className={styles.formGroup}>
+                    <Form.Control type="text" placeholder="No"  name ="cons" onChange={handleChange} className={styles.formTextbox}/>
+                    <Form.Label className={styles.formLabel}>Cons</Form.Label>
+                    </Form.Group>
+
                     <Form.Group className="mb-3"  style={{textAlign:'center'}}>
                         <Button type="submit"  className={styles.btnloginForm +' '+styles.btnLogin}>
-                            Login
+                            Post
                         </Button>
                    
                     </Form.Group>
                   
                     <Form.Group className="mb-3" style={{textAlign:'center'}}>
                        
-                 
-                   
-                    <Nav.Link href="/register" className={styles.btnRegister}>Create new account.</Nav.Link>
+                    <Nav.Link href="/"> 
+                    <Button variant="light"  className={styles.btnloginForm +' '+styles.btnCancel}>
+                              Cancel
+                     </Button>
+                     </Nav.Link>
                   
                     </Form.Group>
                 </Form>
@@ -117,6 +130,6 @@ export default function Login({setToken}) {
 
   );
 }
-Login.prototype = {
+Createdebate.prototype = {
     setToken:PropTypes.func.isRequired
 }

@@ -11,38 +11,56 @@ import { useEffect, useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import axios from "axios"
-
+import styles from "./Post.module.css";
+import Form from 'react-bootstrap/Form'
+import PostComments from './Comments'
 function Profile({token}) {
   const [users, setUsers] = useState([]);
-    
-      useEffect(() => {
-        getUsers(token);
-       
-    }, []);
-   
-      function getUsers(token) {
+  const [prosisActivve,setproisActive] = useState(true);
+  const [offset, setOffset] = useState(0);
+  const [scroll,setScroll] = useState(false);
+  function handleClick()
+    {
+      setproisActive(current=>!current);
+      }
+     
+ function getUsers(token) {
         axios.get(`http://localhost/api/users.php/${token}/profile`).then(function(response) {
            
             setUsers([response.data]);
-           
-          
+
         });
     }
-    console.log(users);
+      useEffect(() => {
+          const onScroll = () => setOffset(window.pageYOffset);
+          getUsers(token);
+          if(offset>0){
+            setScroll(true); 
+         
+          }
+          else{
+             setScroll(false); 
+          }
+          
+          // clean up code
+          window.removeEventListener('scroll', onScroll);
+          window.addEventListener('scroll', onScroll, { passive: true });
+          return () => window.removeEventListener('scroll', onScroll);
+      }, [offset]);
   return (
 
-    <Container fluid="md" >
+    <Container fluid="md" className={styles.container}>
 
       <Row className="justify-content-md-center">
         <Col md="6"  > 
-        <Card className='mt-5' style={{ width: '100%'}}>
+        <Card  className={styles.card}>
      
       <Card.Body >
         <Card.Title>
         <Container fluid="md">
           <Row >
-           <Col md="1 " className='ml-1'  > 
-              <Image rounded  src={userImage} width="40" height="40"/>
+           <Col md="1 " className={styles.colLogo +" "+'ml-1' } > 
+              <Image rounded  src={userImage}  className={styles.imgLogo} />
             
             </Col>
             <Col md="6" > 
@@ -67,18 +85,18 @@ function Profile({token}) {
        
     
       </Card.Body>
-      <Card.Footer style={{height:60,margin:0,padding:0}}>
+      <Card.Footer className={styles.cardFooter}>
         
       <Container fluid="md" style={{margin:0,padding:0}}>
         
-        <Navbar bg="light" expand="lg" >
+        <Navbar bg="light" >
       <Container>
         
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
       
-            <Nav.Link href="/personalinfo">Personal Info</Nav.Link>
+            <Nav.Link href="/profile">Personal Info</Nav.Link>
             <Nav.Link href="/post">Post</Nav.Link>
             
           </Nav>
@@ -92,67 +110,144 @@ function Profile({token}) {
     
     </Col>
       </Row>
-      <Row className="justify-content-md-center mt-2">
-        <Col md="6"  > 
-        <Card style={{ width: '100%',height:'100%'}}>
+      <Row className="justify-content-md-center">
+           <Col md = "6">
+           <Nav.Link   href="/create">
+           <Button type="submit" variant="primary" className={styles.btnCreate}>
+             Create a Debate
+           </Button> 
+           </Nav.Link>
+           </Col>
+        
+           </Row>  
      
-      <Card.Body >
-        <Card.Title>
         {users.map((user, key) =>
         {
         return(
 
+    
+                        
+         <Row className="justify-content-md-center" >
+           <Col md="6"  > 
+           <Card className= {styles.card}  >
         
-        <Container fluid="md" key ={key}>
-        
-        <Row className='mt-1' >
-         
-         <Col md="6" > 
+         <Card.Body >
+           <Card.Title>
+           <Container fluid="md">
+             <Row >
+              <Col  xs="2" lg="2" className = {styles.colLogo}> 
+                 <Image rounded  src={userImage} className={styles.imgLogo} alternate="no image"/>
+               </Col>
+               <Col xs="6" lg="10" className = {styles.Colname}> 
+               <Stack gap={1} >
+               <Card.Text className={styles.cardText}>Jhersy A. Fernandez</Card.Text>
+                 <Card.Text className={styles.cardText}>2 hr</Card.Text>
+                 </Stack>
+                 
+               </Col>
    
-         <Card.Text style={{fontSize: 20,padding:0,margin:0}}>Personal Info</Card.Text>
-         
+             </Row>
+             <Row>
+          
+               <Col md="12" className={styles.colContent}> 
+               <Card.Text className={styles.cardCotent}>
+                 Some quick example text to build on the card title and make up the
+                 bulk of the card's content.
+               </Card.Text>
+                 
+               </Col>
+             </Row>
+           </Container>
+           </Card.Title>
+          
+       
+           <Container fluid="md">
+             <Row className={styles.views}>
+             <Col lg = "1" className={styles.viewsText}> 
+             <Card.Text >
+             <HiEye className={styles.iconTotal} /> 100k
+           </Card.Text>
+           </Col>
+              <Col  lg = "1"  className={styles.viewsText}> 
+              <Card.Text >
+              <HiPlusCircle  className={styles.iconPros}/> 100
+              </Card.Text>
+               
+               </Col>
+               <Col  lg = "1" className={styles.viewsText}> 
+               <Card.Text >
+               <HiMinusCircle className={styles.iconCons} />  100
+           </Card.Text>
+                 
+               </Col>
+             </Row>
+             <Row >
+              <Col md = "12" className={styles.commentLabel} > 
+              <Card.Text >
+               Comments:
+               </Card.Text>
+               
+               </Col>
+             
+             </Row>
+             <Row >
+              <Col onClick={handleClick}  md={prosisActivve?"11":"1"} className={styles.prosCol}> 
+              <Card.Text className={styles.prosText}>
+              <HiPlusCircle  style={{fontSize:20}}/> {prosisActivve?"Pros":""}  
+              </Card.Text>
+               </Col>
+   
+               <Col  onClick={handleClick}  md={prosisActivve?"1":"11"} className={styles.consCol}> 
+               <Card.Text className={styles.consText}>
+               <HiMinusCircle  style={{fontSize:20}}/> {prosisActivve?"":"Cons"}   
+             </Card.Text>
+                 
+               </Col>
+             </Row>
+             {/* Comments */}
+             <Row style={{marginTop:30}}>
+               <Col lg = "12" className={styles.colComentTextarea}>
+                   <Form.Control as="textarea" className={styles.comentTextarea}  placeholder="Leave a comment here" />  
+               </Col>
+               
+             </Row>
+             <Form>
+                 <Row>
+                 
+                 <Col lg="3" className={styles.colbtnComment}>
+                 <Button type="submit" variant="light"  className={styles.btnCancel}>
+                                 Cancel
+                             </Button>
+                 </Col>
+                 <Col lg="3" className={styles.colbtnComment}>
+                 <Button type="submit" variant="primary" className={styles.btnComment}>
+                                 Comment
+                             </Button>
+                 </Col>
+                 
+               </Row>
+             </Form>
            
-         </Col>
-         </Row>
- 
-          <Row className='mt-3'>
-         
-            <Col md="6" > 
-      
-            <Card.Text style={{fontSize: 14,padding:0,margin:0}}>Email:{user.email}</Card.Text>
+             <Row >
+               {/* Pros comments */}
+               
+               <PostComments token={token} prosisActivve={prosisActivve} onClick ={handleClick} Types={"Pros"}/>
+                {/* Pros comments */}
+               {/* Cons comments */}
+               
+               <PostComments token={token} prosisActivve={prosisActivve} onClick ={handleClick} Types={"Cons"}/>
+                {/* Cons comments */}
+             </Row>
             
-              
-            </Col>
-          </Row>
-          <Row className='mt-3'>
-         
-         <Col md="6" > 
-   
-         <Card.Text style={{fontSize: 14,padding:0,margin:0}}>Firstname:{user.firstname}</Card.Text>
-         
-           
-         </Col>
-       </Row>
-       <Row className='mt-3'>
-         
-         <Col md="6" > 
-   
-         <Card.Text style={{fontSize: 14,padding:0,margin:0}}>Lastname:{user.lastname}</Card.Text>
-         
-           
-         </Col>
-       </Row>
-        </Container>);}
+           </Container>
+         </Card.Body>
+       </Card></Col>
+         </Row>
+       );}
         )}
-        </Card.Title>
+ 
        
-    
-       
-      </Card.Body>
-    </Card>
-    
-    </Col>
-      </Row>
+   
     </Container>
   );
 }

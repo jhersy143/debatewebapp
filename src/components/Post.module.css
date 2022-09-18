@@ -1,20 +1,15 @@
-body{
-    background-color: #f7f7f9;
-}
 .container{
     margin-Top:112px;
-    margin-bottom: 50px;
+    margin-bottom:54px;
 }
 .card{
-    width: 100%;
-    height:100%;
-    border-radius:5;
-    border:0px;
-    box-Shadow: 1px 2px 5px 0px #d1d1d1;
-    margin-top:8px;
-}
-.rowContent{
-    margin-bottom: 8px;
+    border-radius: 5px;
+    font-Size: 16px;
+    line-height: 16px;
+    padding:0;
+    margin:0;
+    font-family: 'Roboto', sans-serif;
+    font-Weight:500;
 }
 .colLogo{
  
@@ -28,23 +23,40 @@ body{
     height: 48px;
     width:48px;
  }
-.textName{
-    font-Size: 1.4rem;
-    line-height: 1.8rem;
+.cardFooter{
+    height:54px;
+    margin:0;
+    padding:0;
+}
+.card{
+    width: 100%;
+    height:100%;
+    border-radius:5;
+    border:0px;
+    box-Shadow: 1px 2px 5px 0px #d1d1d1;
+    margin-top:8px;
+}
+.colLogo{
+ 
+    margin: 0px;
+    padding:0px;
+    height: 48px;
+    width:48px;
+  
+}
+.imgLogo{
+    height: 48px;
+    width:48px;
+ }
+.cardText{
+    font-Size: 16px;
+    line-height: 16px;
     padding:0;
     margin:0;
     font-family: 'Roboto', sans-serif;
     font-Weight:500;
    
    
-}
-.cardTextTime{
-    font-Size: 1.2rem;
-    line-height: 1.6rem;
-    padding:0;
-    margin:0;
-    font-family: 'Roboto', sans-serif;
-    font-Weight:300;
 }
 .Colname{
     margin-top:8px;
@@ -54,16 +66,17 @@ body{
 }
 
 .views{
- margin-top: 8px;
- margin-bottom: 8px;
-  
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding-left:40px !important;
+    margin: 0px;
 }
 
 .viewsText{
-   font-Size: 1.4rem;
-   line-height: 1.8rem;
+   font-size: 14px;
+   line-height: 24px;
    font-family: 'Roboto', sans-serif;
-   font-Weight:700;
+   font-Weight:400;
    padding: 0;
    margin: 4px;
    width: 56px;
@@ -71,18 +84,12 @@ body{
 }
 .iconTotal{
    color: #4036C9;
-   font-Size: 2rem;
-   line-height: 2.4rem;
 }
 .iconPros{
     color: #36C940;
-    font-Size: 2rem;
-    line-height: 2.4rem;
  }
  .iconCons{
     color: #C94036;
-    font-Size: 2rem;
-    line-height: 2.4rem;
  }
  .colContent{
    padding: 0;
@@ -91,17 +98,16 @@ body{
  }
 
 .cardCotent{
-   
+    font-Size: 16px;
     padding:0;
-    margin-Top:16px;
+    margin-Top:5px;
     font-family: 'Roboto', sans-serif;
     font-Weight:400;
-    margin-left:8px;
-    font-Size: 1.4rem;
-    line-height: 2rem;
+    margin-left:56px;
+    line-height: 16px;;
 }
 .commentLabel{
-    font-Size: 15px;
+    font-Size: 16px;
     margin:16px 0px 16px 0px;
     padding:0px;
     font-family: 'Roboto', sans-serif;
@@ -114,10 +120,6 @@ body{
 .comentTextarea{
     height: 120px;
     border-radius: 5px;
-    font-Size: 1.4rem;
-    line-height: 2rem;
-    font-family: 'Roboto', sans-serif;
-    font-Weight:500;
 }
 
 .prosCol{
@@ -140,37 +142,31 @@ body{
 
     font-Weight:700;
     font-family: 'Roboto', sans-serif;
-    font-Size: 1.6rem;
-    line-height: 2.6rem;
  
 }
 .consText{
   
     font-Weight:700;
     font-family: 'Roboto', sans-serif;
-    font-Size: 1.6rem;
-    line-height: 2.6rem;
 
 }
 .btnCancel{
-    margin-Top:10px;
+    margin-Top:8px;
     font-family: 'Roboto', sans-serif;
     font-Weight:700;
-    width:106px;
-    font-Size: 1.4rem;
-    line-height: 2rem;
+   width:106px;
+    font-size: 15px;
     height: 40px;
   
 }
 
 .btnComment{
-    margin-Top:10px;
+    margin-Top:8px;
     font-family: 'Roboto', sans-serif;
     font-Weight:700;
     background-color: #4036C9;
     width:106px;
-    font-Size: 1.4rem;
-    line-height: 2rem;
+    font-size: 15px;
     height: 40px;
 }
 .colbtnComment{
@@ -180,7 +176,7 @@ body{
 }
 .btnCreate{
     background-color: #4036C9;
-    margin-Top:8px;
+    margin-Top:16px;
     font-family: 'Roboto', sans-serif;
     font-Weight:700;
     width:100%;
@@ -188,8 +184,4 @@ body{
     border-radius:5;
     border:0px;
     box-Shadow: 1px 2px 5px 0px #d1d1d1;
-    font-Size: 1.4rem;
-    line-height: 2rem;
-    
 }
-

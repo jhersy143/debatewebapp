@@ -13,6 +13,7 @@ import useToken from './components/token';
 import Post from './components/Post';
 import PostComments from './components/Comments';
 import {useNavigate,useParaams} from 'react-router-dom';
+import Createdebate  from './components/Createdebate'
 function App() {
   const { token, setToken } = useToken();
 
@@ -29,6 +30,7 @@ function App() {
             <Route path='/register' element={<Register/>} />
             <Route path='/profile' element={!token?<Login setToken={setToken} />:<Profile token={token}/>}/>
             <Route path='/post' element={!token?<Login setToken={setToken} />:<Post token={token}/>}/>
+            <Route path='/create' element={!token?<Login setToken={setToken} />:<Createdebate token={token}/>}/>
           </Routes >
         </Router>
       </>

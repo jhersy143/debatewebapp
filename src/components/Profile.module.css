@@ -1,0 +1,30 @@
+.container{
+    margin-Top:112px;
+    margin-bottom:54px;
+}
+.card{
+    border-radius: 5px;
+    font-Size: 16px;
+    line-height: 16px;
+    padding:0;
+    margin:0;
+    font-family: 'Roboto', sans-serif;
+    font-Weight:500;
+}
+.colLogo{
+ 
+    margin: 0px;
+    padding:0px;
+    height: 48px;
+    width:48px;
+  
+}
+.imgLogo{
+    height: 48px;
+    width:48px;
+ }
+.cardFooter{
+    height:54px;
+    margin:0;
+    padding:0;
+}

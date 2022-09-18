@@ -5,6 +5,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 import useToken from './token';
 import styles from './Navigationbar.module.css';
+import Image from 'react-bootstrap/Image';
+import  Logo from '../images/icon.png';
 function Navigationbar({token}) {
   //const tokenNav = useToken.token;
 
@@ -15,7 +17,7 @@ function Navigationbar({token}) {
   return (
     <Navbar expand="lg" fixed='top' className={styles.nabvar} >
       <Container>
-        <Navbar.Brand href="#home">Debate App</Navbar.Brand>
+        <Navbar.Brand href="#home"><Image  src={Logo} className={styles.logo} rounded/></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

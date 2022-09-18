@@ -10,12 +10,15 @@ import { useState } from "react";
 import axios from 'axios';
 import Nav from 'react-bootstrap/Nav';
 import  styles from './Register.module.css';
+import  Logo from '../images/icon.png';
+import Image from 'react-bootstrap/Image';
 function Register() {
     const navigate = useNavigate();
     const [inputs, setInputs] = useState([]);
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
+        
         setInputs(values => ({...values, [name]: value}));
     }
     const handleSubmit = (event) => {
@@ -29,62 +32,60 @@ function Register() {
         
     }
   return (
-      <Container>
+      <Container className = {styles.container}>
          
           <Row className="justify-content-md-center">
               
               <Col md="5">
-              <Card className='mt-5' style={{ width: '100%',height:'100%'}}>
-                        <Div variant="top" md="5" style={{backgroundColor: "#8AFFC7",height:50,color:"#FFFFFF",display: 'flex', justifyContent: 'center', alignItem: 'center' }}> 
-                        <Card.Text style={{marginTop:13,marginBottom:13,fontWeight:'bolder' }}>
+              <Card className={'mt-5'+ ' '+styles.card} >
+              <Div  md="5" className={styles.formHeader}> 
+                    <Image  src={Logo} className={styles.logo} rounded/>
+              </Div>
+              <Div variant="top" md="5" className={styles.formHeader}> 
+                    <Card.Text className={styles.formHeadertext}>
                         REGISTER
-                        </Card.Text>
+                    </Card.Text>
                         
                         </Div>
               <Card.Body >
              
               <Form onSubmit={handleSubmit}>
-                    <Form.Group className={"mb-3"+" "+styles.formGroup} controlId="formBasicEmail">
-                    <Form.Label style={{alignSelf: 'center'}}>Email</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" style={{width:300,alignSelf: 'center'}} name = "email" onChange={handleChange} />
-
+                    <Form.Group className={styles.formGroup} controlId="formBasicEmail">
+                   
+                    <Form.Control type="email" placeholder="Enter email" className={styles.formTextbox} name = "email" onChange={handleChange} />
+                    <Form.Label className={styles.formLabel}>Email</Form.Label>
                     </Form.Group>
 
-                    <Form.Group className={"mb-3"+" "+styles.formGroup} controlId="formFname" >
-                    <Form.Label style={{alignSelf: 'center'}}>First Name</Form.Label>
-                    <Form.Control type="text" placeholder="First Name" style={{width:300,alignSelf: 'center'}} name = "firstname" onChange={handleChange}/>
-
+                    <Form.Group className={styles.formGroup} controlId="formFname" >
+                    
+                    <Form.Control type="text" placeholder="First Name" className={styles.formTextbox} name = "firstname" onChange={handleChange}/>
+                    <Form.Label className={styles.formLabel}>First Name</Form.Label>
                     </Form.Group>
 
-                    <Form.Group className={"mb-3"+" "+styles.formGroup} controlId="formLname">
-                    <Form.Label style={{alignSelf: 'center'}}>Last Name</Form.Label>
-                    <Form.Control type="text" placeholder="Last Name" style={{width:300,alignSelf: 'center'}} name = "lastname" onChange={handleChange}/>
-
+                    <Form.Group className={styles.formGroup} controlId="formLname">
+                    
+                    <Form.Control type="text" placeholder="Last Name" className={styles.formTextbox} name = "lastname" onChange={handleChange}/>
+                    <Form.Label className={styles.formLabel}>Last Name</Form.Label>
                     </Form.Group>
 
-                    <Form.Group className={"mb-3"+" "+styles.formGroup} controlId="formBasicPassword" >
-                    <Form.Label style={{alignSelf: 'center'}}>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" style={{width:300,alignSelf: 'center'}} name = "password" onChange={handleChange}/>
+                    <Form.Group className={styles.formGroup} controlId="formBasicPassword" >
+                    
+                    <Form.Control type="password" placeholder="Password" className={styles.formTextbox} name = "password" onChange={handleChange}/>
+                    <Form.Label className={styles.formLabel}>Password</Form.Label>
                     </Form.Group>
                    
                    
-                    <Form.Group className="mb-3" style={{textAlign:'center'}}>
+                    <Form.Group  style={{textAlign:'center'}}>
                        
-                    <Button type="submit"  className={styles.btnregisterForm  +  ' '  + styles.btnLogin}>
-                            Sign-Up
+                    <Button type="submit"  className={styles.btnregisterForm  +  ' '  + styles.btnRegister}>
+                            Register
                     </Button>
                     </Form.Group>
-
-                    <Form.Group className="mb-3"  style={{textAlign:'center'}}>
-                    <Form.Label style={{textAlign:'center'}}>Or</Form.Label>
+                    <Form.Group  style={{textAlign:'center'}}>
+                        <Nav.Link className={styles.btnLogin}  href="/login">Already have  an account.</Nav.Link>
                     </Form.Group>
-                    
-                    <Form.Group className="mb-3"  style={{textAlign:'center'}}>
-                        <Button   className={styles.btnregisterForm  +  ' '  + styles.btnLogin}>
-                        <Nav.Link href="/login">Login</Nav.Link>
-                        </Button>
                    
-                    </Form.Group>
+                
                 </Form>
                 </Card.Body>    
                 </Card>

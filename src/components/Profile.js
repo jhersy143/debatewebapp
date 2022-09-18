@@ -11,38 +11,39 @@ import { useEffect, useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import axios from "axios"
-
+import styles  from './Profile.module.css';
 function Profile({token}) {
   const [users, setUsers] = useState([]);
     
-      useEffect(() => {
+  useEffect(() => {
+
         getUsers(token);
-       
-    }, []);
+
+        }, 
+    []);
    
-      function getUsers(token) {
+    function getUsers(token) {
         axios.get(`http://localhost/api/users.php/${token}/profile`).then(function(response) {
            
             setUsers([response.data]);
-           
-          
+
         });
     }
     console.log(users);
   return (
 
-    <Container fluid="md" >
+    <Container fluid="md" className={styles.container}>
 
       <Row className="justify-content-md-center">
         <Col md="6"  > 
-        <Card className='mt-5' style={{ width: '100%'}}>
+        <Card  className={styles.card}>
      
       <Card.Body >
         <Card.Title>
         <Container fluid="md">
           <Row >
-           <Col md="1 " className='ml-1'  > 
-              <Image rounded  src={userImage} width="40" height="40"/>
+           <Col md="1 " className={styles.colLogo +" "+'ml-1' } > 
+              <Image rounded  src={userImage}  className={styles.imgLogo} />
             
             </Col>
             <Col md="6" > 
@@ -67,11 +68,11 @@ function Profile({token}) {
        
     
       </Card.Body>
-      <Card.Footer style={{height:60,margin:0,padding:0}}>
+      <Card.Footer className={styles.cardFooter}>
         
       <Container fluid="md" style={{margin:0,padding:0}}>
         
-        <Navbar bg="light" expand="lg" >
+        <Navbar bg="light" >
       <Container>
         
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -94,7 +95,7 @@ function Profile({token}) {
       </Row>
       <Row className="justify-content-md-center mt-2">
         <Col md="6"  > 
-        <Card style={{ width: '100%',height:'100%'}}>
+        <Card className={styles.card}>
      
       <Card.Body >
         <Card.Title>

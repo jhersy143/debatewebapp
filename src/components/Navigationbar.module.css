@@ -4,7 +4,13 @@
     font-family: 'Roboto', sans-serif;
     background-color: #FFFFFF;
     font-weight:700;
-    box-Shadow: 1px 5px 10px 1px #d1d1d1;
- 
+    box-Shadow: 1px 2px 5px 0px #d1d1d1;
+    font-Size: 1.6rem;
+    line-height: 2.6rem;
 }
+.logo{
 
+    height:48px;
+    width:48px;
+
+}
