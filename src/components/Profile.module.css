@@ -1,8 +1,21 @@
 .container{
     margin-Top:112px;
     margin-bottom:54px;
+    height: 182px;
+
 }
-.card{
+.cardProfileheader{
+    border-radius: 5px;
+    font-Size: 16px;
+    line-height: 16px;
+    padding:0;
+    margin:0;
+    font-family: 'Roboto', sans-serif;
+    font-Weight:500;
+    height:182px;
+    
+}
+.cardPersonalinfo{
     border-radius: 5px;
     font-Size: 16px;
     line-height: 16px;
@@ -17,14 +30,65 @@
     padding:0px;
     height: 48px;
     width:48px;
-  
+    padding: 16px;
 }
 .imgLogo{
-    height: 48px;
-    width:48px;
+    height: 80px;
+    width:80px;
+
+ }
+ .name{
+    font-Size: 20px;
+    padding:16;
+    margin-top:40px;
+    margin-left: 56px;
+
  }
 .cardFooter{
     height:54px;
     margin:0;
     padding:0;
+    background-color:   white;
+}
+.navbarFooter{
+    margin-top:4px;
+    margin-left:24px;
+   
+}
+.navlinkFooter{
+    margin-right: 24px;
+    font-Size: 1.8rem;
+    line-height: 2.4rem;
+    font-family: 'Roboto', sans-serif;
+    font-Weight:700;
+}
+.Textarea{
+    font-Size: 1.4rem;
+    line-height: 1.8rem;
+    font-family: 'Roboto', sans-serif;
+    font-Weight:500;
+    border:0px;
+    border-bottom:1px solid gray;
+    border-radius: 0px;
+    text-align: justify;
+    box-sizing: border-box;
+    resize: none;
+    overflow: hidden;
+    height:24px;
+    padding: 0;
+    margin:0;
+}
+.colTextarea{
+    margin:0px 0px 8px 0px;
+    padding: 0;
+}
+.Textarea:focus{
+   
+    border-bottom:2px solid rgb(35, 156, 226) !important;
+    box-shadow: none !important;
+    outline: none;
+}
+.rowTextarea{
+    margin-top:48px;
+    margin-bottom: 64px;
 }

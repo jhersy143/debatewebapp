@@ -1,12 +1,12 @@
-import Container from 'react-bootstrap/Container';
+import styles from './Navigationbar.module.css';
+import {Container,Button,Form} from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Link } from 'react-router-dom';
-import useToken from './token';
-import styles from './Navigationbar.module.css';
+
 import Image from 'react-bootstrap/Image';
 import  Logo from '../images/icon.png';
+import { MdSearch } from "react-icons/md";
+import {FaEdit} from "react-icons/fa";
 function Navigationbar({token}) {
   //const tokenNav = useToken.token;
 
@@ -14,6 +14,7 @@ function Navigationbar({token}) {
    
     sessionStorage.clear()
   }
+
   return (
     <Navbar expand="lg" fixed='top' className={styles.nabvar} >
       <Container>
@@ -21,13 +22,24 @@ function Navigationbar({token}) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-      
+        
             <Nav.Link href="/">Home</Nav.Link>
             {!token?<Nav.Link href="/register">Sign-Up</Nav.Link>:<Nav.Link href="/profile">Profile</Nav.Link>
             }
-            {!token?<Nav.Link href="/login">Login</Nav.Link>:<Nav.Link href="/login" onClick={logout}>Logout</Nav.Link>
+              <Form className={!token?styles.searchNone:styles.searchBox+" "+"d-flex"} >
+            <Form.Control type="search" className = {styles.searchBoxControl} placeholder="Search" aria-label="Search"
+            />
+            <Button variant="primary" className={styles.btnSearch}><MdSearch/></Button>
+          </Form>
+          
+            <Button className={!token?styles.searchNone:styles.btnCreate}>
+            <FaEdit className={styles.iconCreate}/>Create a Debate
+          </Button> 
+
+      
+            {!token?<Nav.Link href="/login" className={styles.navlinkLogout}>Login</Nav.Link>:<Nav.Link href="/login" onClick={logout} className={styles.navlinkLogout}>Logout</Nav.Link>
             }
-            
+           
           </Nav>
         </Navbar.Collapse>
       </Container>

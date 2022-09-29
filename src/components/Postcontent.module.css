@@ -1,9 +1,9 @@
 body{
     background-color: #f7f7f9;
 }
-.container{
-    margin-Top:88px;
-    margin-bottom: 50px;
+.rowMain{
+    margin-Top:8px;
+    margin-bottom: 24px;
 }
 .card{
     width: 100%;
@@ -100,7 +100,7 @@ body{
    margin: 0;
  
  }
-.rowContent{
+ .rowContent{
     margin-left: 10px;
     margin-top:16px;
 }

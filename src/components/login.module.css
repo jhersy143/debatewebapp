@@ -4,10 +4,10 @@
 }
 .card{
     border-radius: 0;
-    border-left: solid #1DA185 5px;
-    border-top: solid #1DA185 5px;
-    border-right: solid #BD392E 5px;
-    border-bottom: solid #BD392E 5px;
+    border-left: solid #C8E8BD 3px;
+    border-top: solid #C8E8BD 3px;
+    border-right: solid #E8BDC8 3px;
+    border-bottom: solid #E8BDC8 3px;
     margin-top: 48px;
     height: 480px;
 }
@@ -72,7 +72,7 @@
     line-height: 2.6rem;
 }
 .btnRegister{
-    color:#86E3F8;
+    color:#6D85CC;
     font-family: 'Roboto', sans-serif;
     font-Weight:700;
     font-Size: 1.6rem;
@@ -80,7 +80,7 @@
  
 }
 .forgotpassword{
-    color:#86E3F8;
+    color:#6D85CC;
     text-align: center  ;
     font-family: 'Roboto', sans-serif;
     font-Weight:700;

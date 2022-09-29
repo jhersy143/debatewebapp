@@ -5,14 +5,15 @@ import Stack from 'react-bootstrap/Stack';
 import { Card,Form,Button,Div } from 'react-bootstrap';
 import userImage from '../images/users.png';
 import Image from 'react-bootstrap/Image';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Replies from './Replies';
 import styles from './Comments.module.css';
 import { useNavigate } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import axios from 'axios';
 import { TiArrowSortedDown,TiArrowSortedUp } from "react-icons/ti";
-function Comments({token,prosisActivve,onClick,Types,postID}) {
+import {UserContext} from "../App";
+function Comments(props) {
 
     const [offset, setOffset] = useState(0);
     const [scroll,setScroll] = useState(false);
@@ -22,6 +23,7 @@ function Comments({token,prosisActivve,onClick,Types,postID}) {
     const  navigate = useNavigate();
     const [isReplies,setReplies] = useState(false);
     const [isFocustxtcomment,setFocustxtcomment] = useState(false);
+    const user = useContext(UserContext);
         const handlechange =  (event)=>{
       
           const name = event.target.name;
@@ -38,13 +40,13 @@ function Comments({token,prosisActivve,onClick,Types,postID}) {
         }
         function insertUserID(){
           const name = "userID";
-          const value = token.token;
+          const value = user.token;
       
           setInputs(values=>({...values,[name]:value}))
         }
         function insertPostID(){
           const name = "postID";
-          const value = postID;
+          const value = props.postID;
       
           setInputs(values=>({...values,[name]:value}))
         }
@@ -82,61 +84,15 @@ function Comments({token,prosisActivve,onClick,Types,postID}) {
                // return () => window.removeEventListener('scroll', onScroll);
             }, []);
    
-            const cancel = async(event)=>{
-              setInputs([]);
-              setComment('');
-              getComment();
-              insertUserID();
-              insertPostID();
-              onBlurtxtcomment();
- 
-           
-            }
-            const  addComment = async (event)=>{
-      
-              event.preventDefault();
-          
-          
-              axios.post("http://localhost/api/comments.php",inputs).then(function(response){
-              
-                console.log(response.data);
-              });
-       
-              navigate('/');
-            }
+        
   return (
       
 
-        <Col className={styles.colComment}  sm={Types=="Pros"?prosisActivve?"11":"1":prosisActivve?"1":"11"} style={{display:Types=="Pros"?prosisActivve?"":"none":prosisActivve?"none":"" }} >
+        <Col className={props.prosisActivve?styles.colCommentpros:styles.colCommentcons}  sm={props.Types=="Pros"?props.prosisActivve?"10":"1":props.prosisActivve?"1":"10"} style={{visibility:props.Types=="Pros"?props.prosisActivve?"visible":"hidden":props.prosisActivve?"hidden":"visible" }} >
  
-        <Container fluid="md" >
-        <Form   name="a" onSubmit={addComment}>
-          <Row style={{marginTop:30}}>
-            <Col lg = "12" className={styles.colComentTextarea}>
-                <Form.Control as="textarea"  value={comment} className={styles.comentTextarea} name = "comment" onChange={handlechange}  placeholder="Leave a comment here" onFocus={onFocustxtcomment}  />  
-            </Col>
-          
-          </Row>
-         
-          <Row>
-        
-          </Row>
-              <Row  className={isFocustxtcomment?styles.rowbtnComment:styles.rowbtnInvicomment}>
-              
-              <Col md={{span: 3, offset: 6 }} sm="3" className={styles.colbtnComment}>
-                  <Button type="button" variant="light"  className={styles.btnCancel} onClick={cancel}>
-                        Cancel
-                  </Button>
-              </Col>
-              <Col lg="3"  sm="3" className={styles.colbtnComment} >
-                  <Button type="submit" variant="primary" className={styles.btnComment} >
-                        Comment
-                  </Button>
-              </Col>
-            
-            </Row>
-          </Form>
-            <Row >
+        <Container fluid="md" style={{display:props.Types=="Pros"?props.prosisActivve?"":"none":props.prosisActivve?"none":"" }} className={styles.containerComment}>
+      
+            <Row  className={styles.rowComment+" "+'justify-content-center'}>
             <Col md="1" lg="2" className = {styles.colLogo}> 
                 <Image rounded  src={userImage} className={styles.imgLogo}/>
                 
@@ -153,7 +109,7 @@ function Comments({token,prosisActivve,onClick,Types,postID}) {
             <Row>
             <Col md="12" className={styles.colContent}> 
             <Card.Text className={styles.cardCotent}>
-                {Types=="Pros"?"PROS COMMENTS":"CONS COMMENTS"}
+                {props.Types=="Pros"?"PROS COMMENTS":"CONS COMMENTS"}
                 
                 </Card.Text>
                 
@@ -173,7 +129,7 @@ function Comments({token,prosisActivve,onClick,Types,postID}) {
            
           
             {/* Cons Replies */}
-            <Replies token={token} type={Types} postID={postID}/>
+            <Replies type={props.Types} postID={props.postID}/>
            
             {/* Cons Replies */}
             </Row>

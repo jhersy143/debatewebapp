@@ -1,9 +1,27 @@
-.colComment{
-    background-color: "#FFFFFF";
-    margin-top: 24px;
-    display: 'flex';
-    justify-content: 'center';
-     align-items: 'center';
+.colCommentpros{
+    background-color: #C8E8BD !important;
+    margin-top: 8px;
+    box-shadow: rgb(204, 202, 202) 0px 0px 5px 1px;
+    border-radius: 0px 0 0 10px;
+    padding: 6px;
+
+}
+.colCommentcons{
+    background-color: #E8BDC8 !important;
+    margin-top: 8px;
+    box-shadow: rgb(204, 202, 202) 0px 0px 5px 1px;
+    border-radius: 0px 0px 10px 0;
+    padding:6px;
+}
+.rowComment{
+    padding: 0px;
+    margin: 0px;
+}
+.containerComment{
+    box-shadow: rgb(204, 202, 202) 0px 0px 5px 1px;
+    background-color: white;
+    padding: 16px;
+    margin-left: 0px;
 }
 .cardText{
     font-Size: 1.4rem;
@@ -48,10 +66,10 @@
     font-Size: 1.4rem;
     line-height: 2rem;
     padding:0;
-    margin-Top:5px;
+    margin-Top:24px;
     font-family: 'Roboto', sans-serif;
     font-Weight:400;
-    margin-left:56px;
+    margin-left:8px;
    
 }
 .colComentTextarea{
@@ -124,7 +142,7 @@
     width: 80px;
 }
 .colReplies{
-    margin:16px 0px 0px 48px;
+    margin:16px 0px 0px 0px;
   
 }
 .arrowDown{

@@ -25,7 +25,7 @@
  }
  .colLogo{
  
-    margin: 0px 0px 0px 48px;
+    margin: 0px 0px 0px 24px;
     padding:0px;
     height: 32px;
     width:32px;
@@ -43,7 +43,7 @@
 }
 .colreplyText{
     padding:0;
-    margin:5px 0px 0px 88px;
+    margin:16px 0px 0px 24px;
 }
 .colComentTextarea{
     margin:0px 0px 16px 0px;
@@ -63,7 +63,7 @@
     overflow: hidden;
     height:24px;
     padding: 0;
-    margin:0px 0px 8px 88px;
+    margin:0px 0px 8px 24px;
 }
 .comentTextarea:focus{
    
@@ -79,7 +79,7 @@
     margin-bottom:16px;
     font-family: 'Roboto', sans-serif;
     font-Weight:700;
-    width:98px;
+    width:90px;
     font-Size: 1.4rem;
     line-height: 2rem;
     height: 40px;
@@ -91,15 +91,16 @@
     margin-bottom:16px;
     font-family: 'Roboto', sans-serif;
     font-Weight:700;
-    background-color: #4036C9;
-    width:98px;
+    background-color: #6D85CC;
+    width:90px;
     font-Size: 1.4rem;
     line-height: 2rem;
     height: 40px;
-    margin-left:8px;
+    margin-left:24px;
+    color:black;
 }
 
 .rowbtnComment{
-    margin-left:24px;
+    margin-left:16px;
     
 }

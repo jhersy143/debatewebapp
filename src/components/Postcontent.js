@@ -11,12 +11,12 @@ import { HiOutlineMinusCircle,HiOutlinePlusCircle } from "react-icons/hi";
 import { BiMessageRoundedDetail } from "react-icons/bi";
 import { useEffect,useState,useContext } from 'react';
 import PostComments from './Comments'
-import styles from './Content.module.css';
+import styles from './Postcontent.module.css';
 import Nav from 'react-bootstrap/Nav';
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
 import {UserContext} from "../App";
-function Content() {
+function Postcontent() {
   
   const [prosisActivve,setproisActive] = useState(true);
   const [offset, setOffset] = useState(0);
@@ -105,14 +105,14 @@ function Content() {
       }
   return (
     
-    <Container fluid="md" className={styles.container} >
+    < >
     
-    
+     
         {contents.map((content,key)=>
               {
                 return(
-      <Row key={key} className={"justify-content-md-center"}>
-        <Col md="6"  > 
+      <Row key={key} className={styles.rowMain+" "+"justify-content-md-center"}>
+        <Col md="6" > 
         <Card className= {styles.card}  >
         <Card.Header className={styles.rowHeader} ></Card.Header>
       <Card.Body >
@@ -245,15 +245,16 @@ function Content() {
          
         </Container>
       </Card.Body>
-    </Card></Col>
+    </Card>
+    </Col>
       </Row>
           );
         }
             
         )
         }
-    </Container>
+    </>
   );
 }
 
-export default Content;
+export default Postcontent;

@@ -1,6 +1,18 @@
 .container{
     margin-Top:112px;
     margin-bottom:54px;
+    height: 182px;
+}
+.cardProfileheader{
+    border-radius: 5px;
+    font-Size: 16px;
+    line-height: 16px;
+    padding:0;
+    margin:0;
+    font-family: 'Roboto', sans-serif;
+    font-Weight:500;
+    height:182px;
+    
 }
 .card{
     border-radius: 5px;
@@ -17,16 +29,37 @@
     padding:0px;
     height: 48px;
     width:48px;
-  
+    padding: 16px;
 }
 .imgLogo{
-    height: 48px;
-    width:48px;
+    height: 80px;
+    width:80px;
+
+ }
+ .name{
+    font-Size: 20px;
+    padding:16;
+    margin-top:40px;
+    margin-left: 56px;
+
  }
 .cardFooter{
     height:54px;
     margin:0;
     padding:0;
+    background-color:   white;
+}
+.navbarFooter{
+    margin-top:4px;
+    margin-left:24px;
+   
+}
+.navlinkFooter{
+    margin-right: 24px;
+    font-Size: 1.8rem;
+    line-height: 2.4rem;
+    font-family: 'Roboto', sans-serif;
+    font-Weight:700;
 }
 .card{
     width: 100%;
@@ -36,17 +69,11 @@
     box-Shadow: 1px 2px 5px 0px #d1d1d1;
     margin-top:8px;
 }
-.colLogo{
- 
-    margin: 0px;
-    padding:0px;
-    height: 48px;
-    width:48px;
-  
-}
+
 .imgLogo{
-    height: 48px;
-    width:48px;
+    height: 80px;
+    width:80px;
+
  }
 .cardText{
     font-Size: 16px;

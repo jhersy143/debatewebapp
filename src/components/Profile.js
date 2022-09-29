@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Stack from 'react-bootstrap/Stack';
-import { Card } from 'react-bootstrap';
+import { Card,Form  } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import userImage from '../images/users.png';
 import Image from 'react-bootstrap/Image';
@@ -12,6 +12,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import axios from "axios"
 import styles  from './Profile.module.css';
+
 function Profile({token}) {
   const [users, setUsers] = useState([]);
     
@@ -36,9 +37,9 @@ function Profile({token}) {
 
       <Row className="justify-content-md-center">
         <Col md="6"  > 
-        <Card  className={styles.card}>
+        <Card  className={styles.cardProfileheader}>
      
-      <Card.Body >
+        <Card.Body >
         <Card.Title>
         <Container fluid="md">
           <Row >
@@ -53,7 +54,7 @@ function Profile({token}) {
         {
         return(
 
-            <Card.Text className='mt-2'  style={{fontSize: 20,padding:0,margin:5}} key={key}>{user.firstname + " " +user.lastname}</Card.Text>
+            <Card.Text className={styles.name}  key={key}>{user.firstname + " " +user.lastname}</Card.Text>
         )
          }
         )}
@@ -72,15 +73,15 @@ function Profile({token}) {
         
       <Container fluid="md" style={{margin:0,padding:0}}>
         
-        <Navbar bg="light" >
+        <Navbar>
       <Container>
         
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+        <Navbar.Collapse id="basic-navbar-nav" className={styles.navbarFooter}>
+          <Nav className="me-auto" >
       
-            <Nav.Link href="/personalinfo">Personal Info</Nav.Link>
-            <Nav.Link href="/post">Post</Nav.Link>
+            <Nav.Link href="/personalinfo" className={styles.navlinkFooter}>Profile</Nav.Link>
+            <Nav.Link href="/post" className={styles.navlinkFooter}>Post</Nav.Link>
             
           </Nav>
         </Navbar.Collapse>
@@ -95,7 +96,7 @@ function Profile({token}) {
       </Row>
       <Row className="justify-content-md-center mt-2">
         <Col md="6"  > 
-        <Card className={styles.card}>
+        <Card className={styles.cardPersonalinfo}>
      
       <Card.Body >
         <Card.Title>
@@ -106,43 +107,41 @@ function Profile({token}) {
         
         <Container fluid="md" key ={key}>
         
-        <Row className='mt-1' >
+        <Row className={styles.rowTextarea + " "+"justify-content-center"}>
          
-         <Col md="6" > 
-   
-         <Card.Text style={{fontSize: 20,padding:0,margin:0}}>Personal Info</Card.Text>
-         
-           
-         </Col>
+        <Col lg = "11" className={styles.colComentTextarea}>
+        <Form   name="a" >
+                <Form.Control as="textarea"  value="" className={styles.Textarea} name = "address" placeholder="Address"   />  
+        </Form>    
+            </Col>
          </Row>
  
-          <Row className='mt-3'>
+         <Row className={styles.rowTextarea+ " "+"justify-content-center"} >
          
-            <Col md="6" > 
-      
-            <Card.Text style={{fontSize: 14,padding:0,margin:0}}>Email:{user.email}</Card.Text>
-            
-              
-            </Col>
+         <Col lg = "11" className={styles.colComentTextarea}>
+         <Form   name="a" >
+                 <Form.Control as="textarea"  value="" className={styles.Textarea} name = "comment" placeholder="Birthday"   />  
+         </Form>    
+             </Col>
           </Row>
-          <Row className='mt-3'>
+
+          <Row className={styles.rowTextarea+ " "+"justify-content-center"} >
          
-         <Col md="6" > 
-   
-         <Card.Text style={{fontSize: 14,padding:0,margin:0}}>Firstname:{user.firstname}</Card.Text>
+         <Col lg = "11" className={styles.colComentTextarea}>
+         <Form   name="a" >
+                 <Form.Control as="textarea"  value="" className={styles.Textarea} name = "comment" placeholder="Contact"   />  
+         </Form>    
+             </Col>
+          </Row>
+
+      <Row className={styles.rowTextarea+ " "+"justify-content-center"} >
          
-           
-         </Col>
-       </Row>
-       <Row className='mt-3'>
-         
-         <Col md="6" > 
-   
-         <Card.Text style={{fontSize: 14,padding:0,margin:0}}>Lastname:{user.lastname}</Card.Text>
-         
-           
-         </Col>
-       </Row>
+        <Col lg = "11" className={styles.colComentTextarea}>
+        <Form   name="a" >
+                <Form.Control as="textarea"  value="" className={styles.Textarea} name = "comment" placeholder="Work"   />  
+        </Form>    
+            </Col>
+         </Row>
         </Container>);}
         )}
         </Card.Title>

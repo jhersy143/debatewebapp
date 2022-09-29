@@ -14,3 +14,41 @@
     width:48px;
 
 }
+.searchBox{
+    margin-left:100px!important;
+   
+}
+.searchBoxControl{
+    width:488px !important;
+    border-radius:15px !important;
+    font-size: 16px !important;;
+}
+.btnSearch{
+    border-radius:50% !important;
+    font-size: 18px !important;
+    background-color: #6D85CC !important;
+    margin-left: 8px !important;
+}
+.searchNone{
+    display: none  !important;;
+}
+.btnCreate{
+    background-color: #6D85CC !important;
+    height: 32px !important;
+    width:136px !important;
+    font-size: 14px !important;
+    margin-left: 16px !important;
+    border-radius:5px !important;
+    font-Size: 1.4rem !important;
+    line-height: 2.0rem !important;;
+
+}
+.iconCreate{
+    margin-right: 5px;
+    font-Size: 1.4rem !important;
+    line-height: 2.0rem !important;;
+    
+}
+.navlinkLogout{
+    margin-left:10px;
+}

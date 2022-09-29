@@ -14,6 +14,7 @@ import axios from "axios"
 import styles from "./Post.module.css";
 import Form from 'react-bootstrap/Form'
 import PostComments from './Comments'
+import Postcontent from './Postcontent';
 function Profile({token}) {
   const [users, setUsers] = useState([]);
   const [prosisActivve,setproisActive] = useState(true);
@@ -48,14 +49,14 @@ function Profile({token}) {
           return () => window.removeEventListener('scroll', onScroll);
       }, [offset]);
   return (
-
+    <>
     <Container fluid="md" className={styles.container}>
 
-      <Row className="justify-content-md-center">
+<Row className="justify-content-md-center">
         <Col md="6"  > 
-        <Card  className={styles.card}>
+        <Card  className={styles.cardProfileheader}>
      
-      <Card.Body >
+        <Card.Body >
         <Card.Title>
         <Container fluid="md">
           <Row >
@@ -70,7 +71,7 @@ function Profile({token}) {
         {
         return(
 
-            <Card.Text className='mt-2'  style={{fontSize: 20,padding:0,margin:5}} key={key}>{user.firstname + " " +user.lastname}</Card.Text>
+            <Card.Text className={styles.name}  key={key}>{user.firstname + " " +user.lastname}</Card.Text>
         )
          }
         )}
@@ -89,15 +90,15 @@ function Profile({token}) {
         
       <Container fluid="md" style={{margin:0,padding:0}}>
         
-        <Navbar bg="light" >
+        <Navbar>
       <Container>
         
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+        <Navbar.Collapse id="basic-navbar-nav" className={styles.navbarFooter}>
+          <Nav className="me-auto" >
       
-            <Nav.Link href="/profile">Personal Info</Nav.Link>
-            <Nav.Link href="/post">Post</Nav.Link>
+            <Nav.Link href="/personalinfo" className={styles.navlinkFooter}>Profile</Nav.Link>
+            <Nav.Link href="/post" className={styles.navlinkFooter}>Post</Nav.Link>
             
           </Nav>
         </Navbar.Collapse>
@@ -110,145 +111,16 @@ function Profile({token}) {
     
     </Col>
       </Row>
-      <Row className="justify-content-md-center">
-           <Col md = "6">
-           <Nav.Link   href="/create">
-           <Button type="submit" variant="primary" className={styles.btnCreate}>
-             Create a Debate
-           </Button> 
-           </Nav.Link>
-           </Col>
-        
-           </Row>  
-     
-        {users.map((user, key) =>
-        {
-        return(
-
-    
-                        
-         <Row className="justify-content-md-center" >
-           <Col md="6"  > 
-           <Card className= {styles.card}  >
-        
-         <Card.Body >
-           <Card.Title>
-           <Container fluid="md">
-             <Row >
-              <Col  xs="2" lg="2" className = {styles.colLogo}> 
-                 <Image rounded  src={userImage} className={styles.imgLogo} alternate="no image"/>
-               </Col>
-               <Col xs="6" lg="10" className = {styles.Colname}> 
-               <Stack gap={1} >
-               <Card.Text className={styles.cardText}>Jhersy A. Fernandez</Card.Text>
-                 <Card.Text className={styles.cardText}>2 hr</Card.Text>
-                 </Stack>
-                 
-               </Col>
+         
    
-             </Row>
-             <Row>
-          
-               <Col md="12" className={styles.colContent}> 
-               <Card.Text className={styles.cardCotent}>
-                 Some quick example text to build on the card title and make up the
-                 bulk of the card's content.
-               </Card.Text>
-                 
-               </Col>
-             </Row>
-           </Container>
-           </Card.Title>
-          
-       
-           <Container fluid="md">
-             <Row className={styles.views}>
-             <Col lg = "1" className={styles.viewsText}> 
-             <Card.Text >
-             <HiEye className={styles.iconTotal} /> 100k
-           </Card.Text>
-           </Col>
-              <Col  lg = "1"  className={styles.viewsText}> 
-              <Card.Text >
-              <HiPlusCircle  className={styles.iconPros}/> 100
-              </Card.Text>
-               
-               </Col>
-               <Col  lg = "1" className={styles.viewsText}> 
-               <Card.Text >
-               <HiMinusCircle className={styles.iconCons} />  100
-           </Card.Text>
-                 
-               </Col>
-             </Row>
-             <Row >
-              <Col md = "12" className={styles.commentLabel} > 
-              <Card.Text >
-               Comments:
-               </Card.Text>
-               
-               </Col>
-             
-             </Row>
-             <Row >
-              <Col onClick={handleClick}  md={prosisActivve?"11":"1"} className={styles.prosCol}> 
-              <Card.Text className={styles.prosText}>
-              <HiPlusCircle  style={{fontSize:20}}/> {prosisActivve?"Pros":""}  
-              </Card.Text>
-               </Col>
+      <Postcontent ></Postcontent>
    
-               <Col  onClick={handleClick}  md={prosisActivve?"1":"11"} className={styles.consCol}> 
-               <Card.Text className={styles.consText}>
-               <HiMinusCircle  style={{fontSize:20}}/> {prosisActivve?"":"Cons"}   
-             </Card.Text>
-                 
-               </Col>
-             </Row>
-             {/* Comments */}
-             <Row style={{marginTop:30}}>
-               <Col lg = "12" className={styles.colComentTextarea}>
-                   <Form.Control as="textarea" className={styles.comentTextarea}  placeholder="Leave a comment here" />  
-               </Col>
-               
-             </Row>
-             <Form>
-                 <Row>
-                 
-                 <Col lg="3" className={styles.colbtnComment}>
-                 <Button type="submit" variant="light"  className={styles.btnCancel}>
-                                 Cancel
-                             </Button>
-                 </Col>
-                 <Col lg="3" className={styles.colbtnComment}>
-                 <Button type="submit" variant="primary" className={styles.btnComment}>
-                                 Comment
-                             </Button>
-                 </Col>
-                 
-               </Row>
-             </Form>
-           
-             <Row >
-               {/* Pros comments */}
-               
-               <PostComments token={token} prosisActivve={prosisActivve} onClick ={handleClick} Types={"Pros"}/>
-                {/* Pros comments */}
-               {/* Cons comments */}
-               
-               <PostComments token={token} prosisActivve={prosisActivve} onClick ={handleClick} Types={"Cons"}/>
-                {/* Cons comments */}
-             </Row>
-            
-           </Container>
-         </Card.Body>
-       </Card></Col>
-         </Row>
-       );}
-        )}
  
        
    
     </Container>
+
+     </>
   );
 }
 

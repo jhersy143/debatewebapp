@@ -4,12 +4,13 @@ import Col from 'react-bootstrap/Col';
 import Stack from 'react-bootstrap/Stack';
 import userImage from '../images/users.png';
 import Image from 'react-bootstrap/Image';
-import { useState,useEffect } from 'react';
+import { useState,useEffect,useContext } from 'react';
 import  styles  from  './Replies.module.css';
 import { Card,Form,Button } from 'react-bootstrap';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-function Replies({token,type,postID}) {
+import {UserContext} from "../App";
+function Replies({type,postID}) {
     const [offset, setOffset] = useState(0);
     const [scroll,setScroll] = useState(false);
     const[contents,setContent]  = useState([]);
@@ -18,6 +19,7 @@ function Replies({token,type,postID}) {
     const  navigate = useNavigate();
     const [isReplies,setReplies] = useState(false);
     const [isFocustxtcomment,setFocustxtcomment] = useState(false);
+    const user = useContext(UserContext);
     useEffect(() => {
         getComment();
         insertUserID();
@@ -54,12 +56,13 @@ function Replies({token,type,postID}) {
         getComment();
         insertUserID();
         insertPostID();
+        onBlurtxtcomment();
         console.log(inputs);
      
       }
       function insertUserID(){
         const name = "userID";
-        const value = token.token;
+        const value = user.token;
     
         setInputs(values=>({...values,[name]:value}))
       }
@@ -102,7 +105,7 @@ function Replies({token,type,postID}) {
     
             <Row className={styles.row}> 
                         
-                        <Col md="11">
+                        <Col md="10">
                         <Container fluid="md" >
                                 <Row>
                             
@@ -133,8 +136,8 @@ function Replies({token,type,postID}) {
                         </Row>
                         <Form   name="a" onSubmit={addComment}>
                         <Row style={{marginTop:30}}>
-                            <Col lg = "10" className={styles.colComentTextarea}>
-                                <Form.Control as="textarea"  value={comment} className={styles.comentTextarea} name = "comment" onChange={handlechange}  placeholder="Leave a reply here" onFocus={onFocustxtcomment} onBlur={onBlurtxtcomment}/>  
+                            <Col lg = "12" className={styles.colComentTextarea}>
+                                <Form.Control as="textarea"  value={comment} className={styles.comentTextarea} name = "comment" onChange={handlechange}  placeholder="Leave a reply here" onFocus={onFocustxtcomment} />  
                             </Col>
                         
                         </Row>
@@ -142,8 +145,10 @@ function Replies({token,type,postID}) {
                 
                     </Row>
                     <Row  className={isFocustxtcomment?styles.rowbtnComment:styles.rowbtnInvi}>
-                            
-                            <Col md={{span: 3, offset: 6 }} sm="3" className={styles.colbtnComment}>
+                            <Col  lg="5"sm="5" >
+                
+                           </Col>
+                            <Col lg="3" sm="3" className={styles.colbtnComment}>
                                 <Button type="button" variant="light"  className={styles.btnCancel} onClick={cancel}>
                                         Cancel
                                 </Button>
